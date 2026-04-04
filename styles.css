@@ -102,7 +102,7 @@ h1 {
 }
 
 .score-tile {
-  padding: 16px 14px;
+  padding: 10px 9px;
   background: rgba(255, 255, 255, 0.52);
   display: grid;
   gap: 8px;
@@ -123,7 +123,7 @@ h1 {
 }
 
 .tile-label {
-  font-size: 0.74rem;
+  font-size: 0.44rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.8;
@@ -251,7 +251,7 @@ button.danger {
 }
 
 button.secondary {
-  min-height: 48px;
+  min-height: 25px;
   background: transparent;
 }
 
