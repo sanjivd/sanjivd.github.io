@@ -212,6 +212,13 @@ button {
   width: 100%;
 }
 
+.ball-controls-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
 .ball-input-panel .controls-grid {
   justify-content: start;
 }
@@ -249,11 +256,20 @@ button.secondary {
 }
 
 .action-row {
-  margin-top: 14px;
+  margin-top: 0;
   display: flex;
   gap: 12px;
   justify-content: flex-start;
-  width: 100%;
+  width: auto;
+}
+
+.ball-input-panel .action-row {
+  align-self: stretch;
+}
+
+.ball-input-panel .action-row button {
+  min-width: 96px;
+  min-height: 58px;
 }
 
 .chip-row {
@@ -390,6 +406,11 @@ button.secondary {
     grid-template-columns: repeat(3, minmax(54px, 68px));
   }
 
+  .ball-controls-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .panel-header {
     flex-direction: column;
     align-items: start;
@@ -453,6 +474,7 @@ button.secondary {
     background: rgba(255, 250, 240, 0.92);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 24px rgba(17, 75, 58, 0.12);
+    width: 100%;
   }
 
   .action-row button {
