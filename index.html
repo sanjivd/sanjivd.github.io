@@ -11,31 +11,9 @@
 </head>
 <body>
   <main class="app-shell">
-    <section class="hero-card">
-      <p class="eyebrow">Client-only scoring tool</p>
-      <h1>Cricket Over Counter</h1>
-      <p class="hero-copy">
-        Track a full two-innings 16-over cricket match in a single-page web app.
-      </p>
-    </section>
-
-    <section class="panel scoring-panel">
-      <div class="panel-header">
-        <div>
-          <h2 id="inningsTitle">Team A vs Team B</h2>
-          <p>Each innings is capped at 16 overs. The second innings starts automatically.</p>
-        </div>
-      </div>
-      <div class="team-grid">
-        <label class="field">
-          <span>Team A</span>
-          <input id="teamAInput" type="text" placeholder="Team A">
-        </label>
-        <label class="field">
-          <span>Team B</span>
-          <input id="teamBInput" type="text" placeholder="Team B">
-        </label>
-      </div>
+    <section class="hero-card compact-hero">
+      <p class="eyebrow">Cricket</p>
+      <h1>Over Counter</h1>
     </section>
 
     <section class="scoreboard">
@@ -69,10 +47,10 @@
       </article>
     </section>
 
-    <section class="panel">
+    <section class="panel ball-input-panel">
       <div class="panel-header">
         <h2>Ball Input</h2>
-        <p>Legal balls count toward the 16-over limit. No-ball and wide add 1 extra run and do not consume a legal ball.</p>
+        <p>Tap a compact scoring key for each ball.</p>
       </div>
 
       <div class="controls-grid" id="runButtons">
@@ -86,8 +64,8 @@
         <button data-type="runs" data-value="7">7</button>
         <button data-type="runs" data-value="8">8</button>
         <button class="accent" data-type="extra" data-value="NB">NB</button>
-        <button class="accent" data-type="extra" data-value="WD">Wide</button>
-        <button class="danger" data-type="wicket" data-value="W">Wicket</button>
+        <button class="accent" data-type="extra" data-value="WD">WD</button>
+        <button class="danger" data-type="wicket" data-value="W">W</button>
       </div>
 
       <div class="action-row">
@@ -96,19 +74,31 @@
       </div>
     </section>
 
-    <section class="panel history-panel">
+    <section class="panel scoring-panel">
       <div class="panel-header">
-        <h2>Current Over</h2>
-        <p id="overStatus">0 legal balls in over 1 of 16</p>
+        <div>
+          <h2>Team Names</h2>
+          <p id="inningsTitle">Team A vs Team B</p>
+        </div>
       </div>
-      <div class="chip-row" id="currentOverChips"></div>
+      <div class="team-grid">
+        <label class="field">
+          <span>Team A</span>
+          <input id="teamAInput" type="text" placeholder="Team A">
+        </label>
+        <label class="field">
+          <span>Team B</span>
+          <input id="teamBInput" type="text" placeholder="Team B">
+        </label>
+      </div>
     </section>
 
     <section class="panel history-panel">
       <div class="panel-header">
         <h2>Scorebook</h2>
-        <p>Both innings are tracked over by over.</p>
+        <p id="overStatus">0 legal balls in over 1 of 16</p>
       </div>
+      <div class="chip-row" id="currentOverChips"></div>
       <div class="innings-grid" id="scorebookPanels"></div>
     </section>
   </main>
