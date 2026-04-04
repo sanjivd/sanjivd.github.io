@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Over Counter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <p class="eyebrow">Client-only scoring tool</p>
+      <h1>Cricket Over Counter</h1>
+      <p class="hero-copy">
+        Track a full two-innings 16-over cricket match in a single-page web app.
+      </p>
+    </section>
+
+    <section class="panel scoring-panel">
+      <div class="panel-header">
+        <div>
+          <h2 id="inningsTitle">Team A vs Team B</h2>
+          <p>Each innings is capped at 16 overs. The second innings starts automatically.</p>
+        </div>
+      </div>
+      <div class="team-grid">
+        <label class="field">
+          <span>Team A</span>
+          <input id="teamAInput" type="text" placeholder="Team A">
+        </label>
+        <label class="field">
+          <span>Team B</span>
+          <input id="teamBInput" type="text" placeholder="Team B">
+        </label>
+      </div>
+    </section>
+
+    <section class="scoreboard">
+      <article class="score-tile">
+        <span class="tile-label">Innings</span>
+        <strong id="inningsDisplay">Innings 1</strong>
+      </article>
+      <article class="score-tile">
+        <span class="tile-label">Batting</span>
+        <strong id="battingNowDisplay">Team A</strong>
+      </article>
+      <article class="score-tile primary">
+        <span class="tile-label">Score</span>
+        <strong id="scoreDisplay">0/0</strong>
+      </article>
+      <article class="score-tile">
+        <span class="tile-label">Overs</span>
+        <strong id="oversDisplay">0.0</strong>
+      </article>
+      <article class="score-tile">
+        <span class="tile-label">Extras</span>
+        <strong id="extrasDisplay">0</strong>
+      </article>
+      <article class="score-tile">
+        <span class="tile-label">Run Rate</span>
+        <strong id="runRateDisplay">0.00</strong>
+      </article>
+      <article class="score-tile">
+        <span class="tile-label">Status</span>
+        <strong id="statusDisplay">96 balls left</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Ball Input</h2>
+        <p>Legal balls count toward the 16-over limit. No-ball and wide add 1 extra run and do not consume a legal ball.</p>
+      </div>
+
+      <div class="controls-grid" id="runButtons">
+        <button data-type="runs" data-value="0">0</button>
+        <button data-type="runs" data-value="1">1</button>
+        <button data-type="runs" data-value="2">2</button>
+        <button data-type="runs" data-value="3">3</button>
+        <button data-type="runs" data-value="4">4</button>
+        <button data-type="runs" data-value="5">5</button>
+        <button data-type="runs" data-value="6">6</button>
+        <button data-type="runs" data-value="7">7</button>
+        <button data-type="runs" data-value="8">8</button>
+        <button class="accent" data-type="extra" data-value="NB">NB</button>
+        <button class="accent" data-type="extra" data-value="WD">Wide</button>
+        <button class="danger" data-type="wicket" data-value="W">Wicket</button>
+      </div>
+
+      <div class="action-row">
+        <button class="secondary" id="undoButton" type="button">Undo</button>
+        <button class="secondary" id="newOverButton" type="button">Start Fresh</button>
+      </div>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="panel-header">
+        <h2>Current Over</h2>
+        <p id="overStatus">0 legal balls in over 1 of 16</p>
+      </div>
+      <div class="chip-row" id="currentOverChips"></div>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="panel-header">
+        <h2>Scorebook</h2>
+        <p>Both innings are tracked over by over.</p>
+      </div>
+      <div class="innings-grid" id="scorebookPanels"></div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
