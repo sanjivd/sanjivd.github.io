@@ -331,6 +331,11 @@ button.secondary {
   border-collapse: collapse;
 }
 
+.scorebook-table td:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+}
+
 .scorebook-table th,
 .scorebook-table td {
   padding: 14px 12px;
@@ -433,6 +438,157 @@ button.secondary {
 
   .scorebook-table {
     min-width: 520px;
+  }
+}
+
+@media (max-width: 430px) {
+  .app-shell {
+    width: min(100% - 12px, 1100px);
+    margin: 8px auto 16px;
+    gap: 10px;
+  }
+
+  .hero-card,
+  .scoreboard,
+  .panel {
+    border-radius: 16px;
+  }
+
+  .compact-hero {
+    padding: 10px 14px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+
+  .scoreboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .score-tile {
+    padding: 12px 10px;
+    min-height: 72px;
+    gap: 6px;
+  }
+
+  .score-tile strong {
+    font-size: 1.1rem;
+  }
+
+  .score-tile.primary,
+  .score-tile:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .tile-label {
+    font-size: 0.68rem;
+  }
+
+  .panel-header {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .panel-header h2 {
+    font-size: 1rem;
+  }
+
+  .panel-header p,
+  .innings-block p {
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .field {
+    gap: 6px;
+  }
+
+  .field input {
+    min-height: 42px;
+    padding: 9px 10px;
+  }
+
+  .controls-grid {
+    grid-template-columns: repeat(3, minmax(54px, 64px));
+    gap: 8px;
+  }
+
+  .ball-input-panel .controls-grid button {
+    min-height: 52px;
+    font-size: 0.92rem;
+  }
+
+  .action-row {
+    margin-top: 10px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .action-row button {
+    min-height: 46px;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+  }
+
+  .chip-row {
+    min-height: 44px;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .chip {
+    min-width: 36px;
+    padding: 8px 10px;
+    font-size: 0.88rem;
+  }
+
+  .innings-block {
+    padding: 12px;
+  }
+
+  .innings-block-header {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .innings-block-header h3 {
+    font-size: 1rem;
+  }
+
+  .innings-badge {
+    min-height: 28px;
+    padding: 4px 8px;
+    font-size: 0.74rem;
+  }
+
+  .scorebook-table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .scorebook-table th,
+  .scorebook-table td {
+    padding: 10px 8px;
+    font-size: 0.84rem;
+    vertical-align: top;
+  }
+
+  .scorebook-table th:nth-child(1),
+  .scorebook-table td:nth-child(1) {
+    width: 44px;
+  }
+
+  .scorebook-table th:nth-child(3),
+  .scorebook-table td:nth-child(3) {
+    width: 50px;
+  }
+
+  .scorebook-table th:nth-child(4),
+  .scorebook-table td:nth-child(4) {
+    width: 66px;
   }
 }
 
