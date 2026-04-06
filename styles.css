@@ -184,7 +184,6 @@ h1 {
 
 .controls-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(58px, 72px));
   justify-content: center;
   gap: 10px;
 }
@@ -223,16 +222,23 @@ button {
 }
 
 .ball-input-panel .controls-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  width: min(100%, 344px);
   justify-content: start;
 }
 
 .ball-input-panel .controls-grid button {
-  min-height: 58px;
+  grid-column: span 4;
+  min-height: 0;
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 999px;
+  border-radius: 16px;
   padding: 0;
   font-size: 1rem;
+}
+
+.ball-input-panel .controls-grid button:nth-child(n + 10) {
+  grid-column: span 3;
 }
 
 button:hover {
@@ -595,13 +601,15 @@ button.secondary {
   }
 
   .controls-grid {
-    grid-template-columns: repeat(3, minmax(54px, 64px));
-    gap: 8px;
+    gap: 6px;
+  }
+
+  .ball-input-panel .controls-grid {
+    width: min(100%, 300px);
   }
 
   .ball-input-panel .controls-grid button {
-    min-height: 52px;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   .action-row {
