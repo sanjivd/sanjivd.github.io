@@ -7,7 +7,7 @@ Small client-only web app for counting cricket overs and score events.
 - Tracks score, wickets, overs, and extras for a full two-innings match
 - Lets you name Team A and Team B
 - Supports run buttons from 0 to 8
-- Supports `NB`, `Wide`, and `Wicket`
+- Supports `NB`, `Wide`, `Wide 1D`, and `Wicket`
 - Caps each innings at `16` overs or `7` wickets
 - Starts the second innings automatically after the first innings ends
 - Stops the chase early if the target is reached
