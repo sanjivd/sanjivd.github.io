@@ -97,15 +97,18 @@ h1 {
 .scoreboard {
   display: grid;
   grid-template-columns: repeat(10, minmax(0, 1fr));
+  width: min(860px, 100%);
+  margin: 0 auto;
   gap: 1px;
   overflow: hidden;
 }
 
 .score-tile {
-  padding: 10px 9px;
+  min-height: 74px;
+  padding: 8px 8px;
   background: rgba(255, 255, 255, 0.52);
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .score-tile:nth-child(1),
@@ -540,12 +543,13 @@ button.secondary {
 
   .scoreboard {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(520px, 100%);
   }
 
   .score-tile {
-    padding: 12px 10px;
-    min-height: 72px;
-    gap: 6px;
+    padding: 10px 9px;
+    min-height: 64px;
+    gap: 5px;
   }
 
   .score-tile strong {
