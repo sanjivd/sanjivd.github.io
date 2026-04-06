@@ -2,6 +2,7 @@ const STORAGE_KEY = "cricket-over-counter-state";
 const OVERS_PER_INNINGS = 16;
 const BALLS_PER_OVER = 6;
 const BALLS_PER_INNINGS = OVERS_PER_INNINGS * BALLS_PER_OVER;
+const WICKETS_PER_INNINGS = 7;
 
 const scoreDisplay = document.querySelector("#scoreDisplay");
 const oversDisplay = document.querySelector("#oversDisplay");
@@ -178,8 +179,47 @@ function deriveInnings(events) {
   }
 
   summary.currentOver = workingOver;
-  summary.complete = summary.legalBalls >= BALLS_PER_INNINGS;
+  summary.complete =
+    summary.legalBalls >= BALLS_PER_INNINGS ||
+    summary.wickets >= WICKETS_PER_INNINGS;
   return summary;
+}
+
+function lastRecordedEvent() {
+  if (state.innings[1].length) {
+    return state.innings[1][state.innings[1].length - 1];
+  }
+
+  if (state.innings[0].length) {
+    return state.innings[0][state.innings[0].length - 1];
+  }
+
+  return null;
+}
+
+function syncLastClickedButton() {
+  const lastEvent = lastRecordedEvent();
+  const buttons = runButtons.querySelectorAll("button");
+
+  buttons.forEach((button) => {
+    button.classList.remove("last-clicked");
+    button.removeAttribute("aria-pressed");
+  });
+
+  if (!lastEvent) {
+    return;
+  }
+
+  const value = lastEvent.type === "runs" ? `${lastEvent.runs}` : lastEvent.label;
+  const selector = `[data-type="${lastEvent.type}"][data-value="${value}"]`;
+  const activeButton = runButtons.querySelector(selector);
+
+  if (!activeButton) {
+    return;
+  }
+
+  activeButton.classList.add("last-clicked");
+  activeButton.setAttribute("aria-pressed", "true");
 }
 
 function formatOvers(legalBalls) {
@@ -358,6 +398,7 @@ function render() {
 
   renderCurrentOver(activeSummary, matchComplete);
   renderScorebookPanels(summaries, configs, activeInningsIndex);
+  syncLastClickedButton();
 }
 
 function addEvent(type, value) {

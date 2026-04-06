@@ -250,6 +250,20 @@ button.danger {
   color: var(--danger);
 }
 
+button.last-clicked {
+  background: var(--primary);
+  color: #f8fff9;
+  box-shadow: inset 0 0 0 2px rgba(248, 255, 249, 0.82), 0 12px 24px rgba(17, 75, 58, 0.2);
+}
+
+button.accent.last-clicked {
+  background: #9a6700;
+}
+
+button.danger.last-clicked {
+  background: var(--danger);
+}
+
 button.secondary {
   min-height: 25px;
   background: transparent;
